@@ -33,7 +33,9 @@ fi
 
 # install cloudflared
 cd /tmp \
+&& echo "Architecture: ${architecture}. Downloading ${cloudflared_url}" \
 && wget "${cloudflared_url}" -O /tmp/cloudflared.deb \
+&& echo "Installing for ${architecture} architecture" \
 && apt install -y /tmp/cloudflared.deb \
 && rm -f /tmp/cloudflared.deb \
 && echo "$(date "+%d.%m.%Y %T") Cloudflared installed for ${architecture}" >> /build_date.info
