@@ -20,7 +20,7 @@ jobs:
         with:
           base-image: pihole/pihole:latest
           image: luzfcb/pihole-dot-doh:latest
-          platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
+          # platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
         if: ${{ github.event_name == 'schedule' }}
         env:
           DEBUG: ${{ secrets.ACTIONS_STEP_DEBUG }}
