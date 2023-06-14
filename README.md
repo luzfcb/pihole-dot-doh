@@ -1,6 +1,6 @@
 <h1 align="center" id="heading"> pihole-dot-doh </h1>
 
-<a href="https://github.com/devzwf/pihole-dot-doh/blob/main/CHANGELOG.MD"><img src="https://img.shields.io/badge/🔶-Changelog-blue" /></a> <a href="https://ko-fi.com/O5O0FG195"><img src="https://img.shields.io/badge/%E2%98%95-Buy%20me%20a%20coffee-red" /></a>
+<a href="https://github.com/luzfcb/pihole-dot-doh/blob/main/CHANGELOG.MD"><img src="https://img.shields.io/badge/🔶-Changelog-blue" /></a>
 
 Official pihole docker with both DoT (DNS over TLS) and DoH (DNS over HTTPS) clients. Don't browse the web securely and yet still send your DNS queries in plain text!
 
@@ -14,7 +14,7 @@ version: '3.0'
 services:
   pihole:
     container_name: pihole-dot-doh
-    image: devzwf/pihole-dot-doh:latest
+    image: luzfcb/pihole-dot-doh:latest
     hostname: pihole1
     ports:
       - "53:53/tcp"
@@ -54,9 +54,6 @@ services:
   - Pihole base image is the official [pihole/pihole:latest](https://hub.docker.com/r/pihole/pihole/tags?page=1&name=latest)
   - Cloudflared client was obtained from [official site](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation#linux)
   - Stubby is a standard debian package
-  - doh and dot was based from https://github.com/testdasi/pihole-dot-doh
+  - doh and dot was based from https://github.com/devzwf/pihole-dot-doh and https://github.com/testdasi/pihole-dot-doh
   - update since other container was falling behind version
 
-# Support
-
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/devzwf)

@@ -19,7 +19,12 @@ jobs:
         uses: lucacome/docker-image-update-checker@v1
         with:
           base-image: pihole/pihole:latest
-          image: devzwf/pihole-dot-doh:latest
+          image: luzfcb/pihole-dot-doh:latest
+          platforms: |
+            linux/amd64
+            linux/arm64
+            linux/arm/v7
+            linux/arm/v6
         if: ${{ github.event_name == 'schedule' }}
         env:
           DEBUG: ${{ secrets.ACTIONS_STEP_DEBUG }}
@@ -34,6 +39,12 @@ jobs:
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
+        with:
+          platforms: |
+            linux/amd64
+            linux/arm64
+            linux/arm/v7
+            linux/arm/v6
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -54,9 +65,13 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          platforms: linux/amd64
+          platforms: |
+            linux/amd64
+            linux/arm64
+            linux/arm/v7
+            linux/arm/v6
           push: true
           provenance: false
           tags: |
-            devzwf/pihole-dot-doh:latest
-            devzwf/pihole-dot-doh:${{ steps.latest-tag.outputs.release }}
+            luzfcb/pihole-dot-doh:latest
+            luzfcb/pihole-dot-doh:${{ steps.latest-tag.outputs.release }}
